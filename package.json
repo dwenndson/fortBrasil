@@ -1,0 +1,14 @@
+{
+  "name": "fortbrasil",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dwenndson/fortBrasil.git",
+  "author": "diego wenndson <diego.wenndson@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "workspaces": [
+    "backend/*",
+    "frontend/*"
+  ]
+
+}
