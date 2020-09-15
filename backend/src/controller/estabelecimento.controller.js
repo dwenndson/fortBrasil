@@ -1,5 +1,17 @@
-var estabelecimento = require('../models/estabelecimento.model');
+var estabelecimentoModel = require('../models/estabelecimento.model');
 
-exports.test = function (req, res){
-    res.send('Olá! teste ao controller');
-};
+exports.exports = {
+    getById: function(req, res, next) {
+        console.log(req.body);
+        estabelecimentoModel.findById(req.params.estabelecimentoId, function(err, estabelecimentoInfo){
+            if(err){
+                next(err);
+            } else {
+                res.json({status: "success", mensagem: "estabelecimento Eecontrado", data: {
+                    estabelecimentos: estabelecimentoInfo
+                }});
+            }
+        });
+    },
+    
+}
