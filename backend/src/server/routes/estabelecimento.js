@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const passport = require('passport')
+const { find } = require('../../models/estabelecimento.model')
 const Estabelecimento = require('../../models/estabelecimento.model')
 
 module.exports = app => {
@@ -25,7 +26,7 @@ module.exports = app => {
         })
     })
 
-    router.get('/:id',  (req, res) => {
+    router.get('/find/:id',  (req, res) => {
         const { id } = req.params
         Estabelecimento.findById(id, (err, doc) => {
             if(err){
@@ -59,8 +60,20 @@ module.exports = app => {
         })
     })
 
-    const query = ""
-    router()
+    router.get('/ESCI', (req, res) => {
+        let findEstadoCidade = {}
+        findEstadoCidade.estado = req.query.estado
+        if(req.query.cidade){
+            findEstadoCidade.cidade = req.query.cidade;
+        }
+        Estabelecimento.find( findEstadoCidade, (err, doc) => {
+            if(err){
+                console.log(err)
+                return res.status(400).json({error: "error"})
+            }
+            return res.status(200).json({doc})
+        } )
+    })
 
 
     app.use('/estabelecimento', passport.authenticate('jwt', {session: false}), router)

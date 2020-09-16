@@ -1,3 +1,5 @@
+import { EstabelecimentoCrudModule } from './views/estabelecimento-crud/estabelecimento-crud.module';
+import { EstabelecimentoModule } from './components/pages/estabelecimento/estabelecimento.module';
 import { HomeModule } from './views/home/home.module';
 import { NavModule } from './components/template/nav/nav.module';
 import { HeaderModule } from './components/template/header/header.module';
@@ -9,8 +11,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterModule } from './components/template/footer/footer.module';
 import { ViewEstabelecimentoModule } from './components/pages/view-estabelecimento/view-estabelecimento.module';
+import { LoginModule } from './views/login/login.module';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -19,7 +22,10 @@ import { ViewEstabelecimentoModule } from './components/pages/view-estabelecimen
     FooterModule,
     NavModule,
     HomeModule,
-    ViewEstabelecimentoModule
+    ViewEstabelecimentoModule,
+    EstabelecimentoModule,
+    EstabelecimentoCrudModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

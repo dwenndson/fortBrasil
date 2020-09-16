@@ -8,7 +8,8 @@ import { MatCardModule } from '@angular/material/card'
   declarations: [HomeComponent],
   imports: [
     CommonModule,
-    MatCardModule
+    MatCardModule,
+
   ]
 })
 export class HomeModule { }
