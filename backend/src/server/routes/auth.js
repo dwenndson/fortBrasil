@@ -22,7 +22,7 @@ module.exports = app => {
                 }
                 
                 const { _id } = user
-                const token = jwt.sign({ _id }, secretKey, { expiresIn: '30m' })
+                const token = jwt.sign({ _id }, secretKey, { expiresIn: '1h' })
 
                 res.cookie('jwt', token, { 
                     httpOnly: false, 
